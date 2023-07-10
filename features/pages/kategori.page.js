@@ -1,38 +1,30 @@
-const BasePage = require('./base.page.js')
-
+import BasePage from "./base.page";
 class KategoriPage extends BasePage {
 
-    get KategoriElement() {
-        return $('a[href="/categories"]');
-    }
-
-    get TambahKategoriElement() {
+    get ButtonTambahKategori() {
         return $('a[href="/categories/create"]');
     }
 
-    get NamaKategori() {
+    get NamaTextFieldKategori() {
         return $('#nama');
     }
 
-    get DeskripsiKategori() {
+    get DeskripsiTextFieldKategori() {
         return $('#deskripsi');
     }
 
-    get ButtonSimpan() {
+    get ButtonSimpanKategori() {
         return $('button[type="button"]');
     }
 
-    get SuksesMessage() {
+    get SuksesMessageKategori() {
+        return $('//*[contains(text(),"simpan")]');
+    }
+
+    get ErrorMessageKategori() {
         return $('div[role="alert"]');
     }
 
-    get ErrorMessage() {
-        return $('div[role="alert"');
-    }
-
-    open() {
-        return super.open("https://kasirdemo.belajarqa.com/")
-    }
 }
 
-module.exports = new KategoriPage();
+export default new KategoriPage();
