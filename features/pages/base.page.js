@@ -1,6 +1,5 @@
 module.exports = class BasePage {
-    open (path) {
-        browser.url(path);
+    open(path) {
+        return browser.url('https://kasirdemo.belajarqa.com')
     }
 }
-
