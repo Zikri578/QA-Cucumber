@@ -1,14 +1,19 @@
-const BasePage = require('./base.page.js')
+import BasePage from "./base.page";
+
 class DashboardPage extends BasePage {
 
-    get DashboardElement() {
-        return $('a[href="/dashboard"]');
+    get TitleDashboard() {
+        return $('//h3[contains(text(),"kasirAja")]');
     }
 
-    open() {
-        return super.open("https://kasirdemo.belajarqa.com/")
+    get MenuKategori() {
+        return $('a[href="/categories"]');
+    }
+
+    get MenuPelanggan() {
+        return $('a[href="/customers"]');
     }
 
 }
 
-module.exports = new DashboardPage();
+export default new DashboardPage();
