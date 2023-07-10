@@ -16,14 +16,14 @@
 
 // module.exports = new LoginPage();
 
-const BasePage = require('./base.page')
+import BasePage from "./base.page";
 class LoginPage extends BasePage {
 
-    get EmailTextField() {
+    get EmailTextFieldLogin() {
         return $('#email');
     }
 
-    get PasswordTextField() {
+    get PasswordTextFieldLogin() {
         return $('#password');
     }
 
@@ -31,17 +31,25 @@ class LoginPage extends BasePage {
         return $('button[type="submit"]')
     }
 
-    get TitleProduk() {
+    get TitleProdukLogin() {
         return $('div[class="css-104g6p0"] h2');
     }
 
-    get ErrorMessage() {
+    get ErrorMessageLogin() {
         return $('div[role="alert"]');
     }
 
     open() {
-        return super.open("https://kasirdemo.belajarqa.com/")
+        return super.open("https://kasirdemo.belajarqa.com/login")
     }
+
+    async validLogin(email, password) {
+        await this.open()
+        await this.EmailTextField.setvalue(email)
+        await this.PasswordTextField.setvalue(password)
+        await this.ButtonLogin.click()
+    }
+
 }
 
-module.exports = new LoginPage();
+export default new LoginPage();
